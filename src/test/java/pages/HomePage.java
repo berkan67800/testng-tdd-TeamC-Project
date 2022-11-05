@@ -1,7 +1,5 @@
 package pages;
 
-import com.github.dockerjava.api.model.Link;
-import io.opentelemetry.api.baggage.Baggage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -39,8 +37,37 @@ public class HomePage {
 
     @FindBy(linkText = "Baggage")
     public WebElement Baggage_Link;
+
     @FindBy(linkText = "Flight Schedules")
     public WebElement flightSchedulesLink;
+
+    @FindBy(id = "login-modal-button")
+    public WebElement loginWindowButton;
+
+    @FindBy(xpath = "//input[@aria-label='SkyMiles Number Or Username*']")
+    public WebElement loginUserNameField;
+
+    @FindBy(xpath = "//input[@aria-label='Password*']")
+    public WebElement loginPassword;
+
+    @FindBy(xpath = "//div[@class='login-button']//button[@type='submit']")
+    public WebElement loginSubmitButton;
+
+    @FindBy(xpath = "//input[@aria-label='Last Name*']")
+    public WebElement loginLastNameField;
+
+    @FindBy(xpath = "//div[@class='logged-in-container logged-in-flyout ng-star-inserted']")
+    public WebElement loginContainer;
+
+    @FindBy(xpath = "//p[@class='idp-alert-warning-message-text']")
+    public WebElement loginErrorMessageBar;
+
+
+
+
+
+
+
 
 
 
