@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Driver;
+import utils.SeleniumUtils;
 
 public class SignUpPage {
 
@@ -124,6 +125,7 @@ public class SignUpPage {
         Faker faker = new Faker();
         String password = faker.internet().password(8,20,true,false,true);
 
+        SeleniumUtils.waitFor(1);
         userNameField.sendKeys(faker.name().username().replace(".",""));
         passwordField.sendKeys(password);
         confirmPasswordField.sendKeys(password);
