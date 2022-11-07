@@ -72,6 +72,10 @@ public class BaggagePage {
     public WebElement calculateEstimate;
 
 
+    @FindBy(xpath = "//li//a[@href='/us/en/baggage/checked-baggage/excess-overweight-baggage']")
+    public WebElement excessAndOverweightBag;
+
+
 
 
 
