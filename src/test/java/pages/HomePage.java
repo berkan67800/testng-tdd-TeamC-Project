@@ -98,6 +98,11 @@ public class HomePage {
     @FindBy(xpath = "(//a[@class='dl-state-default'])[2]")
     public WebElement departDate;
 
+    @FindBy(id = "shopWithMiles")
+    public WebElement shopWithMiles;
+
+
+
 
 
 

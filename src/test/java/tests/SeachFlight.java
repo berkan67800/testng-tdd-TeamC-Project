@@ -33,6 +33,25 @@ public class SeachFlight extends TestBase{
 
     }
 
+    @Test
+    public void seachFlightPositiveWithMiles(){
+
+        HomePage homePage = new HomePage();
+
+        homePage.selectFromTo("LAX","JFK");
+        homePage.selectDropDownItem("One Way", homePage.tripTypeDropDown,  homePage.tripTypes);
+        homePage.selectDate();
+        homePage.selectDropDownItem("2",homePage.passengersDropDown,homePage.passengerAmount);
+        SeleniumUtils.jsClick(homePage.shopWithMiles);
+        SeleniumUtils.jsClick(homePage.flightSearchButton);
+        SeleniumUtils.waitFor(2);
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("/flight-search/search-results"));
+
+    }
+
+
+
 
 
 
