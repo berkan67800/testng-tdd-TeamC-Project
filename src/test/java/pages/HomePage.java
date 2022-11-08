@@ -101,7 +101,8 @@ public class HomePage {
     @FindBy(id = "shopWithMiles")
     public WebElement shopWithMiles;
 
-
+    @FindBy(xpath = "//a[@class='forgot-password']")
+    public WebElement forgotPasswordLink;
 
 
 
