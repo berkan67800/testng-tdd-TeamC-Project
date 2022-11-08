@@ -38,8 +38,8 @@ public class HomePage {
     @FindBy(linkText = "Travel Info")
     public WebElement travelInfo_Link;
 
-    @FindBy(linkText = "Baggage")
-    public WebElement Baggage_Link;
+    @FindBy(id ="secondary-static-link-3")
+    public WebElement baggage_Link;
 
     @FindBy(linkText = "Flight Schedules")
     public WebElement flightSchedulesLink;

@@ -26,6 +26,7 @@ public class ResetPasswordTest extends TestBase{
     public void resetPasswordWithNoEntry(){
 
         HomePage homePage = new HomePage();
+        SeleniumUtils.waitFor(1);
         homePage.loginWindowButton.click();
         homePage.forgotPasswordLink.click();
         ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
