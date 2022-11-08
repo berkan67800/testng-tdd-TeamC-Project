@@ -15,7 +15,7 @@ public class SpecialItemsTest extends TestBase {
         HomePage homePage = new HomePage();
         SeleniumUtils.waitFor(1);
         homePage.travelInfo_Link.click();
-        homePage.Baggage_Link.click();
+        homePage.baggage_Link.click();
         BaggagePage baggagePage = new BaggagePage();
         SeleniumUtils.waitFor(1);
         SeleniumUtils.jsClick(baggagePage.specialItems);
@@ -29,7 +29,7 @@ public class SpecialItemsTest extends TestBase {
     public void checkFragileAndBulkyItems() throws InterruptedException {
         HomePage homePage = new HomePage();
         homePage.travelInfo_Link.click();
-        homePage.Baggage_Link.click();
+        homePage.baggage_Link.click();
         BaggagePage baggagePage = new BaggagePage();
         SeleniumUtils.waitFor(1);
         SeleniumUtils.jsClick(baggagePage.specialItems);
@@ -44,7 +44,7 @@ public class SpecialItemsTest extends TestBase {
     public void checkMusicalInstruments() throws InterruptedException {
         HomePage homePage = new HomePage();
         homePage.travelInfo_Link.click();
-        homePage.Baggage_Link.click();
+        homePage.baggage_Link.click();
         BaggagePage baggagePage = new BaggagePage();
         Thread.sleep(300);
         SeleniumUtils.jsClick(baggagePage.specialItems);

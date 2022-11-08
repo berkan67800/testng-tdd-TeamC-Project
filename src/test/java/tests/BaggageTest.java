@@ -1,7 +1,5 @@
 package tests;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,7 +15,7 @@ public class BaggageTest extends TestBase{
       HomePage homePage = new HomePage();
       homePage.travelInfo_Link.click();
       Thread.sleep(300);
-      homePage.Baggage_Link.click();
+      homePage.baggage_Link.click();
       Assert.assertTrue(driver.getTitle().equals("Baggage Policy and Fees | Delta Air Lines"));
 
     }
@@ -28,7 +26,7 @@ public class BaggageTest extends TestBase{
         HomePage homePage = new HomePage();
         SeleniumUtils.waitFor(1);
         homePage.travelInfo_Link.click();
-        homePage.Baggage_Link.click();
+        homePage.baggage_Link.click();
         BaggagePage baggagePage = new BaggagePage();
         Thread.sleep(300);
         SeleniumUtils.jsClick(baggagePage.trackingCheckedBaggage); // JavaScript executor ornegi
@@ -40,7 +38,7 @@ public class BaggageTest extends TestBase{
        HomePage homePage = new HomePage();
        SeleniumUtils.waitFor(1);
        homePage.travelInfo_Link.click();
-       homePage.Baggage_Link.click();
+       homePage.baggage_Link.click();
        BaggagePage baggagePage = new BaggagePage();
        Thread.sleep(300);
        SeleniumUtils.jsClick(baggagePage.trackingCheckedBaggage);
@@ -50,28 +48,23 @@ public class BaggageTest extends TestBase{
     }
 
 
-/*
+
     @Test
-    public void checkBagGuaranteeWarningMessage() throws InterruptedException {
+    public void checkBagGuaranteeTitle()  {
             HomePage homePage = new HomePage();
             homePage.travelInfo_Link.click();
-            homePage.Baggage_Link.click();
+            homePage.baggage_Link.click();
             BaggagePage baggagePage = new BaggagePage();
-            Thread.sleep(300);
-            SeleniumUtils.jsClick(baggagePage.trackingCheckedBaggage);
-            TrackCheckedBaggagePage trackCheckedBaggagePage = new TrackCheckedBaggagePage();
-            trackCheckedBaggagePage.BagGuarantee.click();
-            BagsOnTimePage bagsOnTimePage = new BagsOnTimePage();
-            bagsOnTimePage.submitButton.submit();
-            Assert.assertTrue(bagsOnTimePage.warningMessage.isDisplayed());
+             SeleniumUtils.jsClick(baggagePage.trackingCheckedBaggage);
+            Assert.assertTrue(driver.getTitle().contains("Track Your Baggage | Delta Air Lines"));
 
         }
-*/
+
         @Test
     public void checkActiveMilitaryOnButton() throws InterruptedException {
             HomePage homePage = new HomePage();
             homePage.travelInfo_Link.click();
-            homePage.Baggage_Link.click();
+            homePage.baggage_Link.click();
             BaggagePage baggagePage = new BaggagePage();
             Thread.sleep(300);
             SeleniumUtils.jsClick(baggagePage.activeMilitaryDutyInfo);
@@ -86,7 +79,7 @@ public class BaggageTest extends TestBase{
         HomePage homePage = new HomePage();
         SeleniumUtils.waitFor(1);
         homePage.travelInfo_Link.click();
-        homePage.Baggage_Link.click();
+        homePage.baggage_Link.click();
         BaggagePage baggagePage = new BaggagePage();
         Thread.sleep(500);
         baggagePage.origin.sendKeys(ConfigReader.getProperty("from"),Keys.TAB);
@@ -115,7 +108,7 @@ public class BaggageTest extends TestBase{
                 HomePage homePage = new HomePage();
                 SeleniumUtils.waitFor(1);
                 homePage.travelInfo_Link.click();
-                homePage.Baggage_Link.click();
+                homePage.baggage_Link.click();
                 BaggagePage baggagePage = new BaggagePage();
                 Thread.sleep(500);
                 SeleniumUtils.jsClick(baggagePage.excessAndOverweightBag);

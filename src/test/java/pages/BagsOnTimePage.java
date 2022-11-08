@@ -11,7 +11,7 @@ public class BagsOnTimePage {
 
         PageFactory.initElements(Driver.getDriver(),this);
     }
-    @FindBy(xpath = "//button[@id='submit']")
+    @FindBy(xpath = "//button[contains(text(),'Submit')]")
     public WebElement submitButton;
 
     @FindBy(xpath = "//div[@class='toolTipErrorMessageContainer']")
