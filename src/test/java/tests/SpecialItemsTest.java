@@ -13,12 +13,14 @@ public class SpecialItemsTest extends TestBase {
     @Test
     public void checkSpecialItems() throws InterruptedException {
         HomePage homePage = new HomePage();
+        SeleniumUtils.waitFor(1);
         homePage.travelInfo_Link.click();
         homePage.Baggage_Link.click();
         BaggagePage baggagePage = new BaggagePage();
-        Thread.sleep(300);
+        SeleniumUtils.waitFor(1);
         SeleniumUtils.jsClick(baggagePage.specialItems);
         SpecialItemPage specialItemPage = new SpecialItemPage();
+        SeleniumUtils.waitFor(1);
         specialItemPage.childrenInfantItems.click();
         Assert.assertTrue(driver.getTitle().equals("Children & Infant Items"));
     }
@@ -29,9 +31,10 @@ public class SpecialItemsTest extends TestBase {
         homePage.travelInfo_Link.click();
         homePage.Baggage_Link.click();
         BaggagePage baggagePage = new BaggagePage();
-        Thread.sleep(300);
+        SeleniumUtils.waitFor(1);
         SeleniumUtils.jsClick(baggagePage.specialItems);
         SpecialItemPage specialItemPage = new SpecialItemPage();
+        SeleniumUtils.waitFor(1);
         specialItemPage.fragileAndBulkyItems.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.delta.com/us/en/baggage/special-items/fragile-bulky-other-items");
 

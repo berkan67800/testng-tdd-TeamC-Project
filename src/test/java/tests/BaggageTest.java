@@ -26,6 +26,7 @@ public class BaggageTest extends TestBase{
     public void checkedBaggageFee() throws InterruptedException {
 
         HomePage homePage = new HomePage();
+        SeleniumUtils.waitFor(1);
         homePage.travelInfo_Link.click();
         homePage.Baggage_Link.click();
         BaggagePage baggagePage = new BaggagePage();
@@ -37,6 +38,7 @@ public class BaggageTest extends TestBase{
    @Test
    public void checkBaggageStatusNoEntry() throws InterruptedException {
        HomePage homePage = new HomePage();
+       SeleniumUtils.waitFor(1);
        homePage.travelInfo_Link.click();
        homePage.Baggage_Link.click();
        BaggagePage baggagePage = new BaggagePage();
@@ -48,7 +50,7 @@ public class BaggageTest extends TestBase{
     }
 
 
-
+/*
     @Test
     public void checkBagGuaranteeWarningMessage() throws InterruptedException {
             HomePage homePage = new HomePage();
@@ -64,12 +66,11 @@ public class BaggageTest extends TestBase{
             Assert.assertTrue(bagsOnTimePage.warningMessage.isDisplayed());
 
         }
-
+*/
         @Test
     public void checkActiveMilitaryOnButton() throws InterruptedException {
             HomePage homePage = new HomePage();
             homePage.travelInfo_Link.click();
-            SeleniumUtils.waitFor(1);
             homePage.Baggage_Link.click();
             BaggagePage baggagePage = new BaggagePage();
             Thread.sleep(300);
