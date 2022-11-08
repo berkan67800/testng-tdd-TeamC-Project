@@ -106,17 +106,20 @@ public class BaggageTest extends TestBase{
             baggagePage.origin.sendKeys(ConfigReader.getProperty("from"),Keys.TAB);
             baggagePage.destination.sendKeys(ConfigReader.getProperty("to"), Keys.TAB);
             baggagePage.onBoardExperience.sendKeys(Keys.ARROW_DOWN, Keys.TAB);
-//            baggagePage.purchaseDate.sendKeys(Keys.ARROW_DOWN, Keys.TAB);
-//            baggagePage.travelDate.sendKeys(Keys.ARROW_DOWN, Keys.TAB);
+            baggagePage.purchaseDate.click();
+            baggagePage.purchaseDateDay.click();
+            baggagePage.purchaseDateDoneButton.click();
+            baggagePage.travelDate.click();
+            baggagePage.travelDateNextMonth.click();
+            baggagePage.travelDateDay.click();
+            baggagePage.travelDateDoneButton.click();
             baggagePage.numOfPassenger.sendKeys(Keys.ARROW_DOWN, Keys.TAB);
             baggagePage.medallionStatus.sendKeys(Keys.TAB);
             baggagePage.skyMiles.sendKeys(Keys.ARROW_DOWN, Keys.TAB);
-            SeleniumUtils.waitFor(5);
             SeleniumUtils.jsClick(baggagePage.calculateEstimate);
-            SeleniumUtils.waitFor(5);
+            String airportInfo = baggagePage.calculatorPopUpAirport.getText().replaceAll("[^a-zA-Z]", "");
+            Assert.assertTrue(airportInfo.equals(ConfigReader.getProperty("from")+ConfigReader.getProperty("to")));
 
-
-            
-        }
+     }
 
 }
