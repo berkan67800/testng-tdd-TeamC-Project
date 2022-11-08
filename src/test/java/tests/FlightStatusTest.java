@@ -7,11 +7,11 @@ import pages.HomePage;
 import utils.ConfigReader;
 import utils.SeleniumUtils;
 
-public class FlightStatusTest extends TestBase{
+public class FlightStatusTest extends TestBase {
 
 
-@Test
-    public void viewFlightStatusNoEntry(){
+    @Test
+    public void viewFlightStatusNoEntry() {
 
         HomePage homePage = new HomePage();
         homePage.travelInfo_Link.click();
@@ -26,7 +26,7 @@ public class FlightStatusTest extends TestBase{
     }
 
     @Test
-    public void viewFlightStatusPositive(){
+    public void viewFlightStatusPositive() {
 
         HomePage homePage = new HomePage();
         homePage.travelInfo_Link.click();
@@ -45,7 +45,7 @@ public class FlightStatusTest extends TestBase{
     }
 
     @Test
-    public void checkAirportTitles(){
+    public void checkAirportTitles() {
 
         HomePage homePage = new HomePage();
         homePage.travelInfo_Link.click();
@@ -56,8 +56,16 @@ public class FlightStatusTest extends TestBase{
         flightStatusPage.toAirport.sendKeys(ConfigReader.getProperty("to"));
         flightStatusPage.viewFlightStatus.click();
 
-        Assert.assertTrue(flightStatusPage.airportTitlesInList(ConfigReader.getProperty("from"),ConfigReader.getProperty("to")));
+        Assert.assertTrue(flightStatusPage.airportTitlesInList(ConfigReader.getProperty("from"), ConfigReader.getProperty("to")));
 
     }
 
-}
+
+
+
+
+    }
+
+
+
+
