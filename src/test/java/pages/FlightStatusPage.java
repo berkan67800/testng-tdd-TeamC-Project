@@ -36,6 +36,8 @@ public class FlightStatusPage {
 
 
 
+
+
     public boolean airportTitlesInList(String departure, String arrival) {
 
         boolean arrivalCheck = true;
