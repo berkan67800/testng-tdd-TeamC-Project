@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -61,6 +62,78 @@ public class HomePage {
 
     @FindBy(xpath = "//p[@class='idp-alert-warning-message-text']")
     public WebElement loginErrorMessageBar;
+
+    @FindBy(id = "btn-book-submit")
+    public WebElement flightSearchButton;
+    @FindBy(id = "correctionBar")
+    public WebElement searchErrorMessage;
+
+    @FindBy(xpath = "//a[@id='fromAirportName']//span[@class='airport-code d-block']")
+    public WebElement departureField;
+
+    @FindBy(id = "search_input")
+    public WebElement searchAirport;
+
+    @FindBy(xpath = "(//li[@class='airport-list ng-star-inserted'])[1]")
+    public WebElement airportList;
+
+    @FindBy(xpath = "//a[@id='toAirportName']//span[@class='airport-code d-block']")
+    public WebElement destinationField;
+
+    @FindBy(xpath = "//span[@aria-describedby='selectTripType-val']")
+    public WebElement tripTypeDropDown;
+
+    @FindBy(xpath = "//ul[@class='select-ui-optionUL ng-tns-c1-2 select-ui-optionUL-overflow']//li")
+    public List<WebElement> tripTypes;
+
+    @FindBy(xpath = "//span[@aria-labelledby='passengers-label']")
+    public WebElement passengersDropDown;
+
+    @FindBy(xpath = "//ul[@id='passengers-desc']//li")
+    public List<WebElement> passengerAmount;
+
+    @FindBy(id = "input_departureDate_1")
+    public WebElement dateDropDown;
+
+    @FindBy(xpath = "(//a[@class='dl-state-default'])[2]")
+    public WebElement departDate;
+
+    @FindBy(id = "shopWithMiles")
+    public WebElement shopWithMiles;
+
+    @FindBy(xpath = "//a[@class='forgot-password']")
+    public WebElement forgotPasswordLink;
+
+
+
+
+    public void selectFromTo(String from, String to){
+        departureField.click();
+        searchAirport.sendKeys(Keys.BACK_SPACE,from);
+        airportList.click();
+
+        destinationField.click();
+        searchAirport.sendKeys(Keys.BACK_SPACE,to);
+        airportList.click();
+    }
+
+    public void selectDropDownItem(String title, WebElement dropBox, List<WebElement> elements){
+        dropBox.click();
+        for (WebElement type : elements) {
+            if (type.getAccessibleName().contains(title)){
+                type.click();
+                break;
+            }
+        }
+    }
+    public void selectDate(){
+        dateDropDown.click();
+        departDate.click();
+    }
+
+
+
+
 
 
 

@@ -53,11 +53,33 @@ public class BaggagePage {
     @FindBy(xpath = "//div[@aria-describedby='idp-input_onboard_experience__selected']")
     public WebElement onBoardExperience;
 
-    @FindBy(xpath = "//div[@class=idp-molecule-calendar-dropdown idp-molecule-calendar-dropdown--add-margin]//span[@id='textbox_input_date_purchase']")
+    @FindBy(xpath = "//idp-molecule-calendar-dropdown[@id='input_date_purchase']//div[@class='idp-molecule-calendar-dropdown idp-molecule-calendar-dropdown--add-margin']")
     public WebElement purchaseDate;
 
-    @FindBy(xpath = "//div[@class='idp-molecule-calendar-dropdown__selected idp-molecule-calendar-dropdown__focused-selected']//span[@id='textbox_input_date_travel']")
+    @FindBy(xpath = "(//div[contains(@class, 'calendar-table__anchor-date calendar-table__focused')])[1]/following-sibling::div[1]")
+    public WebElement purchaseDateDay;
+
+    @FindBy(xpath = "(//section)[1]//button[contains(text(),'done')]")
+    public WebElement purchaseDateDoneButton;
+
+    @FindBy(xpath = "//idp-molecule-calendar-dropdown[@formcontrolname='travelDate']//div[@class='idp-molecule-calendar-dropdown idp-molecule-calendar-dropdown--add-margin']")
     public WebElement travelDate;
+
+    @FindBy(xpath = "(//button[@aria-label='Next month'])[2]")
+    public WebElement travelDateNextMonth;
+
+    @FindBy(xpath = "(//div[@class='calendar-table__col calendar-table-day__current--15'])[2]")
+    public WebElement travelDateDay;
+
+
+    @FindBy(xpath = "(//section)[2]//button[contains(text(),'done')]")
+    public WebElement travelDateDoneButton;
+
+
+    @FindBy(xpath = "//idp-simple-info[@class='head-table-cell']//span[@class='ng-star-inserted']")
+    public WebElement calculatorPopUpAirport;
+
+
 
     @FindBy(xpath = "//div[@aria-describedby='idp-passengers__selected']")
     public WebElement numOfPassenger;
@@ -68,12 +90,15 @@ public class BaggagePage {
     @FindBy(xpath = "//div[@aria-describedby='idp-credit-card-status__selected']")
     public WebElement skyMiles;
 
-    @FindBy(xpath = "//idp-button[@class='cal-estimate-btn float-right mt-0 mt-md-2']")
+    @FindBy(xpath = "//idp-button[@class='cal-estimate-btn float-right mt-0 mt-md-2']//button")
     public WebElement calculateEstimate;
 
 
     @FindBy(xpath = "//li//a[@href='/us/en/baggage/checked-baggage/excess-overweight-baggage']")
     public WebElement excessAndOverweightBag;
+
+
+
 
 
 
