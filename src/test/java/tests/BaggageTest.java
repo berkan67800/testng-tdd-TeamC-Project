@@ -63,7 +63,6 @@ public class BaggageTest extends TestBase{
             bagsOnTimePage.submitButton.submit();
             Assert.assertTrue(bagsOnTimePage.warningMessage.isDisplayed());
 
-
         }
 
         @Test
@@ -80,28 +79,34 @@ public class BaggageTest extends TestBase{
 
         }
 
-        @Test
+    @Test
     public void checkCalculateBagWithoutTrip() throws InterruptedException {
 
-            HomePage homePage = new HomePage();
-            SeleniumUtils.waitFor(1);
-            homePage.travelInfo_Link.click();
-            homePage.Baggage_Link.click();
-            BaggagePage baggagePage = new BaggagePage();
-            Thread.sleep(500);
-            baggagePage.origin.sendKeys(ConfigReader.getProperty("from"), Keys.TAB);
-            baggagePage.destination.sendKeys(ConfigReader.getProperty("to"), Keys.TAB);
-            baggagePage.onBoardExperience.sendKeys(Keys.ARROW_DOWN, Keys.TAB);
-//            baggagePage.purchaseDate.sendKeys(Keys.ARROW_DOWN, Keys.TAB);
-//            baggagePage.travelDate.sendKeys(Keys.ARROW_DOWN, Keys.TAB);
-            baggagePage.numOfPassenger.sendKeys(Keys.ARROW_DOWN, Keys.TAB);
-            baggagePage.medallionStatus.sendKeys(Keys.TAB);
-            baggagePage.skyMiles.sendKeys(Keys.ARROW_DOWN, Keys.TAB);
-            SeleniumUtils.waitFor(5);
-            SeleniumUtils.jsClick(baggagePage.calculateEstimate);
-            SeleniumUtils.waitFor(5);
+        HomePage homePage = new HomePage();
+        SeleniumUtils.waitFor(1);
+        homePage.travelInfo_Link.click();
+        homePage.Baggage_Link.click();
+        BaggagePage baggagePage = new BaggagePage();
+        Thread.sleep(500);
+        baggagePage.origin.sendKeys(ConfigReader.getProperty("from"),Keys.TAB);
+        baggagePage.destination.sendKeys(ConfigReader.getProperty("to"), Keys.TAB);
+        baggagePage.onBoardExperience.sendKeys(Keys.ARROW_DOWN, Keys.TAB);
+        baggagePage.purchaseDate.click();
+        baggagePage.purchaseDateDay.click();
+        baggagePage.purchaseDateDoneButton.click();
+        baggagePage.travelDate.click();
+        baggagePage.travelDateNextMonth.click();
+        baggagePage.travelDateDay.click();
+        baggagePage.travelDateDoneButton.click();
+        baggagePage.numOfPassenger.sendKeys(Keys.ARROW_DOWN, Keys.TAB);
+        baggagePage.medallionStatus.sendKeys(Keys.TAB);
+        baggagePage.skyMiles.sendKeys(Keys.ARROW_DOWN, Keys.TAB);
+        SeleniumUtils.jsClick(baggagePage.calculateEstimate);
+        String airportInfo = baggagePage.calculatorPopUpAirport.getText().replaceAll("[^a-zA-Z]", "");
+        Assert.assertTrue(airportInfo.equals(ConfigReader.getProperty("from")+ConfigReader.getProperty("to")));
 
-        }
+    }
+
 
             @Test
     public void checkExcessAndOverweightBag() throws InterruptedException {
