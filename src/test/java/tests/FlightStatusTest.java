@@ -25,7 +25,7 @@ public class FlightStatusTest extends TestBase {
 
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void viewFlightStatusPositive() {
 
         HomePage homePage = new HomePage();

@@ -18,12 +18,13 @@ public class SeachFlight extends TestBase{
     }
 
 
-     @Test
+    @Test (groups = "smoke")
     public void seachFlightPositive(){
 
         HomePage homePage = new HomePage();
 
          homePage.selectFromTo("LAX","JFK");
+         SeleniumUtils.waitFor(1);
          homePage.selectDropDownItem("One Way", homePage.tripTypeDropDown,  homePage.tripTypes);
          homePage.selectDate();
          homePage.selectDropDownItem("2",homePage.passengersDropDown,homePage.passengerAmount);

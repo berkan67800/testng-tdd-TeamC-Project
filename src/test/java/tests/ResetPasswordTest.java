@@ -10,7 +10,7 @@ import utils.SeleniumUtils;
 
 public class ResetPasswordTest extends TestBase{
 
-    @Test
+    @Test (groups = "smoke")
     public void resetPassword(){
 
         HomePage homePage = new HomePage();

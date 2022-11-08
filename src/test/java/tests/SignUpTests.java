@@ -8,7 +8,7 @@ import utils.SeleniumUtils;
 public class SignUpTests extends TestBase{
 
 
-    @Test
+    @Test (groups = "smoke")
     public void signUpPositive(){
 
 

@@ -9,7 +9,7 @@ import utils.SeleniumUtils;
 
 public class LoginTests extends TestBase{
 
-    @Test
+    @Test (groups = "smoke")
     public void logInPositive(){
 
 
@@ -39,7 +39,7 @@ public class LoginTests extends TestBase{
 
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void logInNegative(){
 
 
