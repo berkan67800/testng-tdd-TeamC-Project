@@ -1,12 +1,11 @@
 package tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import utils.SeleniumUtils;
 
-public class SeachFlight extends TestBase{
+public class SeachFlightTests extends TestBase{
 
     @Test
     public void seachFlightNegativeNoEntry(){
