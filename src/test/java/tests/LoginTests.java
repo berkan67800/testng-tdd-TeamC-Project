@@ -2,8 +2,10 @@ package tests;
 
 import com.github.javafaker.Faker;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import utils.CSVReader;
 import utils.ConfigReader;
 import utils.SeleniumUtils;
 
@@ -20,6 +22,23 @@ public class LoginTests extends TestBase{
         SeleniumUtils.waitFor(1);
         homePage.loginLastNameField.sendKeys(ConfigReader.getProperty("lastName"));
         homePage.loginPassword.sendKeys(ConfigReader.getProperty("password"));
+        homePage.loginSubmitButton.click();
+
+        Assert.assertTrue(SeleniumUtils.elementExists(homePage.loginContainer,0));
+
+    }
+
+    @Test (dataProvider = "loginData")
+    public void logInPositiveCVSFile(String firstName,String lastName,String date,String gender,String address,String city,String state,String postalCode,String phone, String email,String username,String password,String q1,String q2){
+
+
+        HomePage homePage = new HomePage();
+
+        homePage.loginWindowButton.click();
+        homePage.loginUserNameField.sendKeys(username);
+        SeleniumUtils.waitFor(1);
+        homePage.loginLastNameField.sendKeys(lastName);
+        homePage.loginPassword.sendKeys(password);
         homePage.loginSubmitButton.click();
 
         Assert.assertTrue(SeleniumUtils.elementExists(homePage.loginContainer,0));
@@ -56,4 +75,11 @@ public class LoginTests extends TestBase{
         Assert.assertTrue(homePage.loginErrorMessageBar.isDisplayed());
 
     }
+
+
+    @DataProvider(name = "loginData")
+    public Object[][] getData(){
+        return CSVReader.readFromCSV("src/test/resources/SignUpData.csv");
+    }
+
 }
