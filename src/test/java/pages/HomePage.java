@@ -7,8 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import utils.Driver;
 import utils.SeleniumUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class HomePage {
@@ -99,6 +97,9 @@ public class HomePage {
     @FindBy(xpath = "(//a[@class='dl-state-default'])[2]")
     public WebElement departDate;
 
+    @FindBy(xpath = "(//a[@class='dl-state-default'])[4]")
+    public WebElement returnDate;
+
     @FindBy(id = "shopWithMiles")
     public WebElement shopWithMiles;
 
@@ -134,8 +135,11 @@ public class HomePage {
             }
         }
     }
-    public void selectDate() {
+    public void selectDepartDate() {
         dateDropDown.click();
+        departDate.click();
+    }
+    public void selectReturnDate() {
         departDate.click();
     }
 
