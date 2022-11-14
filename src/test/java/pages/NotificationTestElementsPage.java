@@ -29,4 +29,17 @@ public class NotificationTestElementsPage {
 
     @FindBy(xpath = "//span[@class='acknowledge']")
     public WebElement thankYouForFeedbackMessage;
+
+
+    @FindBy(xpath = "//label[@aria-label='3 stars']")
+    public WebElement feedbackThreeStars;
+
+    @FindBy(xpath = "//select[@id='acs_objPOP0297109']")
+    public WebElement selectionsButton;
+
+    @FindBy(xpath = "//button[@class='acs-feedback__button acs-feedback__button--expand acs-submit-feedback__button']")
+    public WebElement feedbackSubmitButton;
+
+    @FindBy(xpath = "//button[normalize-space()='OK']")
+    public WebElement feedbackOkButton;
 }

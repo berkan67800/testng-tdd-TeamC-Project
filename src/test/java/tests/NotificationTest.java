@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -23,8 +24,6 @@ public class NotificationTest extends TestBase{
             SeleniumUtils.waitFor(1);
             NotificationTestElementsPage notificationTestElementsPage = new NotificationTestElementsPage();
 
-            Thread.sleep(200);
-
             Set<String> allWindows = driver.getWindowHandles();
                for (String currentWindow: allWindows){
                     driver.switchTo().window(currentWindow);
@@ -39,7 +38,6 @@ public class NotificationTest extends TestBase{
             Assert.assertEquals(driver.getCurrentUrl(), "https://www.delta.com/us/en/travel-planning-center/travel-planning-overview");
 
              SeleniumUtils.scrollToElement(notificationTestElementsPage.reconnetJojTravel);
-             SeleniumUtils.waitFor(3);
 
              String reconnectExpectedText = "Reconnect With the Joy of Travel";
              WebElement reconnectText = driver.findElement(By.xpath("//h2[normalize-space()='Reconnect With the Joy of Travel']"));
@@ -54,6 +52,48 @@ public class NotificationTest extends TestBase{
 
         }
 
+        @Test
+        public void negativeFeedbackCheck() throws InterruptedException {
+          HomePage homePage = new HomePage();
+            SeleniumUtils.waitFor(1);
+            homePage.notificationButton.click();
+            SeleniumUtils.jsClick(homePage.viewAllButton);
+          NotificationTestElementsPage notificationTestElementsPage = new NotificationTestElementsPage();
 
+        Set<String> allWindows = driver.getWindowHandles();
+        for (String currentWindow: allWindows){
+            driver.switchTo().window(currentWindow);
+
+        }     Thread.sleep(200);
+
+          notificationTestElementsPage.collapsableText.click();
+
+          SeleniumUtils.jsClick(notificationTestElementsPage.firstOption);
+          SeleniumUtils.waitFor(3);
+
+          notificationTestElementsPage.feedbackNoButton.click();
+
+          notificationTestElementsPage.feedbackThreeStars.click();
+            //Thread.sleep(500);
+            notificationTestElementsPage.selectionsButton.click();
+            notificationTestElementsPage.selectionsButton.sendKeys(Keys.ARROW_DOWN);
+            //Thread.sleep(500);
+
+            notificationTestElementsPage.feedbackSubmitButton.click();
+            notificationTestElementsPage.feedbackOkButton.click();
+
+           // Thread.sleep(700);
+
+            Assert.assertEquals(driver.getCurrentUrl(),"https://www.delta.com/us/en/travel-planning-center/travel-planning-overview");
+
+
+
+
+
+
+
+
+
+    }
 
     }
