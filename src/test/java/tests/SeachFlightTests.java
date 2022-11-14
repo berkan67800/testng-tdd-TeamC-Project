@@ -54,6 +54,7 @@ public class SeachFlightTests extends TestBase{
 
     @Test (dataProvider = "flightSearchData")
     public void seachFlightCSVFile(String from,String to,String type,String passenger){
+
         logger.assignAuthor("Berkan");
         logger.info("Seaching flights by using CSV file");
         logger.info("DATA:["+from+","+to+","+type+","+passenger+"]");
