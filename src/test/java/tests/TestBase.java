@@ -48,6 +48,7 @@ public abstract class TestBase {
         logger = extentReport.createTest(method.getName());
     }
 
+
     @AfterMethod(alwaysRun = true)
     public void tearDownMethod(ITestResult testResult){
 
