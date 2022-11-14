@@ -106,8 +106,17 @@ public class HomePage {
     @FindBy(xpath = "//a[@class='forgot-password']")
     public WebElement forgotPasswordLink;
 
+    @FindBy(xpath = "//ngc-search[@class='d-lg-none float-right search-ham ng-tns-c0-0 d-none ng-star-inserted']//a[@aria-haspopup='true']")
+    public WebElement searchBox;
 
+    @FindBy(xpath = "//a[@class='notification icon-notification-icon circle-outline']")
+    public WebElement notificationButton;
 
+    @FindBy(xpath = "//div[@class='modal-footer mobile-view-all justify-content-start border-0 mobile-view-all-absolute']//span[@aria-hidden='true']")
+    public WebElement viewAllButton;
+
+    @FindBy(xpath = "(//a[@href='/en_US/site-map'])[2]")
+    public WebElement siteMapButton;
 
     public void selectFromTo(String from, String to){
         departureField.click();
@@ -131,6 +140,9 @@ public class HomePage {
     public void selectDate(){
         dateDropDown.click();
         departDate.click();
+        //=======================================================================================================
+
+
     }
 
 
