@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -60,8 +61,36 @@ public class SiteMapTest extends TestBase{
     }
 
     @Test
-    public void loginForGiftCard(){
+    public void loginForGiftCard() {
 
+        HomePage homePage = new HomePage();
+        SeleniumUtils.jsClick(homePage.siteMapButton);
+        SiteMapPage siteMapPage = new SiteMapPage();
+        siteMapPage.CorporateBulkGiftCard.click();
+        siteMapPage.orderNowButton.click();
+        SeleniumUtils.waitFor(3);
+        JavascriptExecutor js = ((JavascriptExecutor) driver);
+        js.executeScript("window.scrollBy(0,400)");
+        SeleniumUtils.waitFor(3);
+        Set<String> allWindows = driver.getWindowHandles();
+        for (String currentWindow : allWindows) {
+            driver.switchTo().window(currentWindow);
+        }
+        SeleniumUtils.waitFor(3);
+        js = ((JavascriptExecutor) driver);
+        js.executeScript("window.scrollBy(0,400)");
+        SeleniumUtils.waitFor(3);
+        SeleniumUtils.jsClick(siteMapPage.getAccesButton);
+        siteMapPage.emailOrUserName.sendKeys(ConfigReader.getProperty("username"));
+        siteMapPage.password.sendKeys(ConfigReader.getProperty("password"));
+        siteMapPage.loginButton.click();
+
+        String invalidCredentialWarning = siteMapPage.invalidCredentialsMessage.getText();
+        Assert.assertTrue(invalidCredentialWarning.equals("Invalid credentials"));
+    }
+
+    @Test
+    public void forgotYourPasswordTest(){
         HomePage homePage = new HomePage();
         SeleniumUtils.jsClick(homePage.siteMapButton);
         SiteMapPage siteMapPage = new SiteMapPage();
@@ -80,13 +109,12 @@ public class SiteMapTest extends TestBase{
         js.executeScript("window.scrollBy(0,400)");
         SeleniumUtils.waitFor(3);
         SeleniumUtils.jsClick(siteMapPage.getAccesButton);
-        siteMapPage.emailOrUserName.sendKeys(ConfigReader.getProperty("username"));
-        siteMapPage.password.sendKeys(ConfigReader.getProperty("password"));
-        siteMapPage.loginButton.click();
+        siteMapPage.forgotPasswordButton.click();
+        siteMapPage.resetPasswordBar.sendKeys(ConfigReader.getProperty("email"));
+        SeleniumUtils.waitFor(5);
+        siteMapPage.resetButton.click();
+        Assert.assertTrue(siteMapPage.succesfullMessage.isDisplayed());
 
-        String invalidCredentialWarning = siteMapPage.invalidCredentialsMessage.getText();
-        Assert.assertTrue(invalidCredentialWarning.equals("Invalid credentials"));
 
-        
     }
 }
