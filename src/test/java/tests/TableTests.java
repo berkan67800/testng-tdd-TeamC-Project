@@ -30,9 +30,6 @@ public class TableTests extends TestBase {
 
         Assert.assertEquals(headers,changeOrCancelPage.tableOneHeaders);
 
-
-
-
     }
 
 

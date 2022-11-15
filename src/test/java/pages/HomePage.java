@@ -7,8 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import utils.Driver;
 import utils.SeleniumUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class HomePage {
@@ -66,6 +64,7 @@ public class HomePage {
 
     @FindBy(id = "btn-book-submit")
     public WebElement flightSearchButton;
+    
     @FindBy(id = "correctionBar")
     public WebElement searchErrorMessage;
 
@@ -99,6 +98,9 @@ public class HomePage {
     @FindBy(xpath = "(//a[@class='dl-state-default'])[2]")
     public WebElement departDate;
 
+    @FindBy(xpath = "(//a[@class='dl-state-default'])[4]")
+    public WebElement returnDate;
+
     @FindBy(id = "shopWithMiles")
     public WebElement shopWithMiles;
 
@@ -113,7 +115,22 @@ public class HomePage {
 
     @FindBy(xpath = "//a[@class='sign-up btn btn-link']")
     public WebElement signUpPageLink;
+    
+    @FindBy(xpath = "//ngc-search[@class='d-lg-none float-right search-ham ng-tns-c0-0 d-none ng-star-inserted']//a[@aria-haspopup='true']")
+    public WebElement searchBox;
 
+    @FindBy(xpath = "//a[@class='notification icon-notification-icon circle-outline']")
+    public WebElement notificationButton;
+
+    @FindBy(xpath = "//div[@class='modal-footer mobile-view-all justify-content-start border-0 mobile-view-all-absolute']//span[@aria-hidden='true']")
+    public WebElement viewAllButton;
+
+    @FindBy(xpath = "(//a[@href='/en_US/site-map'])[2]")
+    public WebElement siteMapButton;
+    
+    
+    
+    
 
     public void selectFromTo(String from, String to) {
         departureField.click();
@@ -134,8 +151,12 @@ public class HomePage {
             }
         }
     }
-    public void selectDate() {
+    public void selectDepartDate() {
         dateDropDown.click();
+        departDate.click();
+    }
+        
+    public void selectReturnDate() {
         departDate.click();
     }
 
