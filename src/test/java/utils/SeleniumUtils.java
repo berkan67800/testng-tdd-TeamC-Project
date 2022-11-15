@@ -154,4 +154,14 @@ public class SeleniumUtils {
         int y = element.getLocation().getY();
         ((JavascriptExecutor)Driver.getDriver()).executeScript("window.scrollBy(0,"+ y +")");
     }
+
+    public static void selectDropDownItem(String text, WebElement dropdownList, List<WebElement> elements){
+        dropdownList.click();
+        for (WebElement type : elements) {
+            if (type.getAccessibleName().contains(text)){
+                type.click();
+                break;
+            }
+        }
+    }
 }

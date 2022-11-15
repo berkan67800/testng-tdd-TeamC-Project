@@ -7,17 +7,14 @@ import org.openqa.selenium.support.PageFactory;
 import utils.Driver;
 import utils.SeleniumUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class HomePage {
 
-    public HomePage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public HomePage() {
+        PageFactory.initElements(Driver.getDriver(), this);
         SeleniumUtils.waitFor(1);
     }
-
 
 
     @FindBy(xpath = "//a[@data-analytics-id='home-shop-1']")
@@ -26,7 +23,7 @@ public class HomePage {
     @FindBy(xpath = "//a[@data-analytics-id='home-shop-2']")
     public WebElement shopHotels_Link;
 
-     @FindBy(xpath = "//a[@data-analytics-id='home-shop-3']")
+    @FindBy(xpath = "//a[@data-analytics-id='home-shop-3']")
     public WebElement rentACar_Link;
 
     @FindBy(xpath = "//a[@data-analytics-id='home-shop-4']")
@@ -38,7 +35,7 @@ public class HomePage {
     @FindBy(linkText = "Travel Info")
     public WebElement travelInfo_Link;
 
-    @FindBy(id ="secondary-static-link-3")
+    @FindBy(id = "secondary-static-link-3")
     public WebElement baggage_Link;
 
     @FindBy(linkText = "Flight Schedules")
@@ -67,6 +64,7 @@ public class HomePage {
 
     @FindBy(id = "btn-book-submit")
     public WebElement flightSearchButton;
+    
     @FindBy(id = "correctionBar")
     public WebElement searchErrorMessage;
 
@@ -100,12 +98,24 @@ public class HomePage {
     @FindBy(xpath = "(//a[@class='dl-state-default'])[2]")
     public WebElement departDate;
 
+    @FindBy(xpath = "(//a[@class='dl-state-default'])[4]")
+    public WebElement returnDate;
+
     @FindBy(id = "shopWithMiles")
     public WebElement shopWithMiles;
 
     @FindBy(xpath = "//a[@class='forgot-password']")
     public WebElement forgotPasswordLink;
 
+    @FindBy(id = "headSectab3")
+    public WebElement needHelpLink;
+
+    @FindBy(id = "primary-static-link-1")
+    public WebElement refundHelpLink;
+
+    @FindBy(xpath = "//a[@class='sign-up btn btn-link']")
+    public WebElement signUpPageLink;
+    
     @FindBy(xpath = "//ngc-search[@class='d-lg-none float-right search-ham ng-tns-c0-0 d-none ng-star-inserted']//a[@aria-haspopup='true']")
     public WebElement searchBox;
 
@@ -117,85 +127,38 @@ public class HomePage {
 
     @FindBy(xpath = "(//a[@href='/en_US/site-map'])[2]")
     public WebElement siteMapButton;
+    
+    
+    
+    
 
-    public void selectFromTo(String from, String to){
+    public void selectFromTo(String from, String to) {
         departureField.click();
-        searchAirport.sendKeys(Keys.BACK_SPACE,from);
+        searchAirport.sendKeys(Keys.BACK_SPACE, from);
         airportList.click();
 
         destinationField.click();
-        searchAirport.sendKeys(Keys.BACK_SPACE,to);
+        searchAirport.sendKeys(Keys.BACK_SPACE, to);
         airportList.click();
     }
 
-    public void selectDropDownItem(String title, WebElement dropBox, List<WebElement> elements){
+    public void selectDropDownItem(String title, WebElement dropBox, List<WebElement> elements) {
         dropBox.click();
         for (WebElement type : elements) {
-            if (type.getAccessibleName().contains(title)){
+            if (type.getAccessibleName().contains(title)) {
                 type.click();
                 break;
             }
         }
     }
-    public void selectDate(){
+    public void selectDepartDate() {
         dateDropDown.click();
         departDate.click();
-        //=======================================================================================================
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public List<String> websiteTitlesExpected(){
-
-        return new ArrayList<>(Arrays.asList(
-                "Delta Vacations",
-                "Travel with Delta",
-                "Travel with Delta",
-                "Travel Gift Card | Delta Air Lines",
-                "Baggage Policy and Fees | Delta Air Lines"
-        ));
+        
+    public void selectReturnDate() {
+        departDate.click();
     }
-    public List<WebElement> links(){
-        return new ArrayList<>(Arrays.asList(
-                vacationDeals_Link,
-                shopHotels_Link,
-                rentACar_Link,
-                giftCardsLink,
-                updatedBagTravelFees_link
-        ));
-
-    }
-
-
-
-
-
-
-
 
 
 }
