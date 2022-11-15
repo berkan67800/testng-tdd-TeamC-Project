@@ -53,19 +53,19 @@ public class NotificationTest extends TestBase{
             for (String currentWindow : allWindows) {
                 driver.switchTo().window(currentWindow);
             }
-            Thread.sleep(200);
+            SeleniumUtils.waitFor(3);
             notificationTestElementsPage.collapsableText.click();
             SeleniumUtils.jsClick(notificationTestElementsPage.firstOption);
             SeleniumUtils.waitFor(3);
             notificationTestElementsPage.feedbackNoButton.click();
             notificationTestElementsPage.feedbackThreeStars.click();
-            //Thread.sleep(500);
+            Thread.sleep(500);
             notificationTestElementsPage.selectionsButton.click();
             notificationTestElementsPage.selectionsButton.sendKeys(Keys.ARROW_DOWN);
-            //Thread.sleep(500);
+            SeleniumUtils.waitFor(3);
             notificationTestElementsPage.feedbackSubmitButton.click();
             notificationTestElementsPage.feedbackOkButton.click();
-            SeleniumUtils.waitFor(5);
+            SeleniumUtils.waitFor(3);
             Assert.assertEquals(driver.getCurrentUrl(), "https://www.delta.com/us/en/travel-planning-center/travel-planning-overview");
 
 
