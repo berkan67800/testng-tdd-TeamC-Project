@@ -7,7 +7,7 @@ import utils.Driver;
 
 public class SiteMapPage {
 
-    public SiteMapPage(){
+    public SiteMapPage() {
 
         PageFactory.initElements(Driver.getDriver(), this);
 
@@ -57,12 +57,4 @@ public class SiteMapPage {
 
     @FindBy(xpath = "//h1[normalize-space()='Password reset successful']")
     public WebElement succesfullMessage;
-
-
-
-
-
-
-
-
 }
