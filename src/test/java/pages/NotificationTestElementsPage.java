@@ -30,7 +30,6 @@ public class NotificationTestElementsPage {
     @FindBy(xpath = "//span[@class='acknowledge']")
     public WebElement thankYouForFeedbackMessage;
 
-
     @FindBy(xpath = "//label[@aria-label='3 stars']")
     public WebElement feedbackThreeStars;
 

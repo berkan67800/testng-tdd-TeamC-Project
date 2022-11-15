@@ -24,29 +24,19 @@ public class SiteMapTest extends TestBase{
         SeleniumUtils.jsClick(homePage.siteMapButton);
         SiteMapPage siteMapPage = new SiteMapPage();
         siteMapPage.CorporateBulkGiftCard.click();
-
         siteMapPage.orderNowButton.click();
-        SeleniumUtils.waitFor(3);
-
         JavascriptExecutor js = ((JavascriptExecutor)driver);
         js.executeScript("window.scrollBy(0,400)");
-        SeleniumUtils.waitFor(3);
-
         Set<String> allWindows = driver.getWindowHandles();
         for (String currentWindow: allWindows){
-            driver.switchTo().window(currentWindow);
-        }
-        SeleniumUtils.waitFor(3);
+        driver.switchTo().window(currentWindow);}
         js = ((JavascriptExecutor)driver);
         js.executeScript("window.scrollBy(0,400)");
         SeleniumUtils.waitFor(3);
-
         SeleniumUtils.jsClick(siteMapPage.getAccesButton); SeleniumUtils.waitFor(3);
-
         Set<String> allWindows2 = driver.getWindowHandles();
         for (String currentWindow: allWindows2){
-            driver.switchTo().window(currentWindow);
-        }
+        driver.switchTo().window(currentWindow);}
         Faker faker = new Faker();
         siteMapPage.registerEmailButton.sendKeys(faker.internet().emailAddress());
         siteMapPage.registerButton.click();
@@ -55,7 +45,6 @@ public class SiteMapTest extends TestBase{
         siteMapPage.cancelButton.click();
         siteMapPage.yesButton.click();
         SeleniumUtils.waitFor(3);
-
         Assert.assertEquals(driver.getCurrentUrl(),"https://business.giftcards.delta.com/login/login/");
 
     }
@@ -74,8 +63,7 @@ public class SiteMapTest extends TestBase{
         SeleniumUtils.waitFor(3);
         Set<String> allWindows = driver.getWindowHandles();
         for (String currentWindow : allWindows) {
-            driver.switchTo().window(currentWindow);
-        }
+        driver.switchTo().window(currentWindow);}
         SeleniumUtils.waitFor(3);
         js = ((JavascriptExecutor) driver);
         js.executeScript("window.scrollBy(0,400)");
@@ -84,7 +72,6 @@ public class SiteMapTest extends TestBase{
         siteMapPage.emailOrUserName.sendKeys(ConfigReader.getProperty("username"));
         siteMapPage.password.sendKeys(ConfigReader.getProperty("password"));
         siteMapPage.loginButton.click();
-
         String invalidCredentialWarning = siteMapPage.invalidCredentialsMessage.getText();
         Assert.assertTrue(invalidCredentialWarning.equals("Invalid credentials"));
     }
@@ -101,20 +88,18 @@ public class SiteMapTest extends TestBase{
         js.executeScript("window.scrollBy(0,400)");
         SeleniumUtils.waitFor(3);
         Set<String> allWindows = driver.getWindowHandles();
-        for (String currentWindow: allWindows){
-            driver.switchTo().window(currentWindow);
-        }
+        for (String currentWindow: allWindows) {
+        driver.switchTo().window(currentWindow);}
         SeleniumUtils.waitFor(3);
         js = ((JavascriptExecutor)driver);
         js.executeScript("window.scrollBy(0,400)");
-        SeleniumUtils.waitFor(3);
+        //SeleniumUtils.waitFor(3);
         SeleniumUtils.jsClick(siteMapPage.getAccesButton);
         siteMapPage.forgotPasswordButton.click();
         siteMapPage.resetPasswordBar.sendKeys(ConfigReader.getProperty("email"));
-        SeleniumUtils.waitFor(5);
+        SeleniumUtils.waitFor(10);
         siteMapPage.resetButton.click();
         Assert.assertTrue(siteMapPage.succesfullMessage.isDisplayed());
-
 
     }
 }

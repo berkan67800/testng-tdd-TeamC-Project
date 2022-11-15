@@ -10,9 +10,7 @@ public class SiteMapPage {
     public SiteMapPage() {
 
         PageFactory.initElements(Driver.getDriver(), this);
-
     }
-
     @FindBy(xpath = "//a[@href='/content/www/en_US/shop/gift-card/corporate-bulk-gift-cards.html']")
     public WebElement CorporateBulkGiftCard;
 
