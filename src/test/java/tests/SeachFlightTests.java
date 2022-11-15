@@ -52,7 +52,7 @@ public class SeachFlightTests extends TestBase{
 
     }
 
-    @Test (dataProvider = "flightSearchData")
+    @Test (dataProvider = "flightSearchData",groups = "smoke")
     public void seachFlightCSVFile(String from,String to,String type,String passenger){
 
         logger.assignAuthor("Berkan");

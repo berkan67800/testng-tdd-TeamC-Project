@@ -27,7 +27,7 @@ public class FlightStatusTest extends TestBase {
 
     }
 
-    @Test (groups = "smoke")
+    @Test
     public void viewFlightStatusPositive() {
 
         HomePage homePage = new HomePage();
@@ -62,7 +62,7 @@ public class FlightStatusTest extends TestBase {
 
     }
 
-    @Test(dataProvider = "flights")
+    @Test(dataProvider = "flights", groups="smoke")
     public void checkAirportTitlesCSVFile(String from, String to) {
 
         HomePage homePage = new HomePage();

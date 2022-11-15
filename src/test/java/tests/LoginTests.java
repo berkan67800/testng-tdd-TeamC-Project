@@ -11,7 +11,7 @@ import utils.SeleniumUtils;
 
 public class LoginTests extends TestBase{
 
-    @Test (groups = "smoke")
+    @Test
     public void logInPositive(){
 
 
@@ -28,7 +28,7 @@ public class LoginTests extends TestBase{
 
     }
 
-    @Test (dataProvider = "loginData")
+    @Test (dataProvider = "loginData",groups="smoke")
     public void logInPositiveCVSFile(String lastName,String username,String password){
 
 
@@ -58,7 +58,7 @@ public class LoginTests extends TestBase{
 
     }
 
-    @Test (groups = "smoke")
+    @Test
     public void logInNegative(){
 
 

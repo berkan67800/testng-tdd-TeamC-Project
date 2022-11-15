@@ -33,7 +33,7 @@ public class SignUpTests extends TestBase{
 
     }
 
-    @Test(dataProvider = "info")
+    @Test(dataProvider = "info",groups="smoke")
     public void signUpPositiveDataFromCSVFile(String firstName,String lastName,String date,String gender,String address,String city,String state,String postalCode,String phone, String email,String username,String password,String q1,String q2){
 
         logger.assignAuthor("Berkan");
@@ -45,9 +45,7 @@ public class SignUpTests extends TestBase{
         SignUpPage signUpPage = new SignUpPage();
 
         signUpPage.enterBasicInfoCSVFile(firstName,lastName,date,gender);
-        //signUpPage.enterContactInfoCSVFile(address,city,state,postalCode,phone,email);
         signUpPage.enterContactInfoRandom();
-        //signUpPage.enterLoginInfoCSVFile(username,password,q1,q2);
         signUpPage.enterLoginInfoRandom();
 
 
