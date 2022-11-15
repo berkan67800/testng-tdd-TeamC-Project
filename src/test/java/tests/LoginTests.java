@@ -29,7 +29,7 @@ public class LoginTests extends TestBase{
     }
 
     @Test (dataProvider = "loginData")
-    public void logInPositiveCVSFile(String firstName,String lastName,String date,String gender,String address,String city,String state,String postalCode,String phone, String email,String username,String password,String q1,String q2){
+    public void logInPositiveCVSFile(String lastName,String username,String password){
 
 
         HomePage homePage = new HomePage();
@@ -79,7 +79,7 @@ public class LoginTests extends TestBase{
 
     @DataProvider(name = "loginData")
     public Object[][] getData(){
-        return CSVReader.readFromCSV("src/test/resources/SignUpData.csv");
+        return CSVReader.readFromCSV("src/test/resources/Login_Data.csv");
     }
 
 }

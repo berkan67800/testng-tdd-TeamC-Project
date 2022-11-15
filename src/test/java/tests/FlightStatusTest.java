@@ -1,9 +1,11 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.FlightStatusPage;
 import pages.HomePage;
+import utils.CSVReader;
 import utils.ConfigReader;
 import utils.SeleniumUtils;
 
@@ -60,11 +62,33 @@ public class FlightStatusTest extends TestBase {
 
     }
 
+    @Test(dataProvider = "flights")
+    public void checkAirportTitlesCSVFile(String from, String to) {
 
+        HomePage homePage = new HomePage();
+        homePage.travelInfo_Link.click();
+        homePage.flightSchedulesLink.click();
 
+        FlightStatusPage flightStatusPage = new FlightStatusPage();
+        flightStatusPage.fromAirport.sendKeys(from);
+        flightStatusPage.toAirport.sendKeys(to);
+        flightStatusPage.viewFlightStatus.click();
 
+        Assert.assertTrue(flightStatusPage.airportTitlesInList(from, to));
 
     }
+
+    @DataProvider(name = "flights")
+    public Object[][] getData(){
+        return CSVReader.readFromCSV("src/test/resources/Flights.csv");
+    }
+
+
+
+
+
+
+}
 
 
 
