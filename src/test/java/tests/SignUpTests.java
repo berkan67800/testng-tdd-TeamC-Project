@@ -59,7 +59,7 @@ public class SignUpTests extends TestBase{
 
 
 
-    @DataProvider(name = "info")
+    @DataProvider(name = "info",parallel=true)
     public Object[][] getData(){
         return CSVReader.readFromCSV("src/test/resources/SignUpData.csv");
     }

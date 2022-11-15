@@ -73,7 +73,7 @@ public class SeachFlightTests extends TestBase{
 
     }
 
-    @DataProvider(name = "flightSearchData")
+    @DataProvider(name = "flightSearchData",parallel=true)
     public Object[][] getData(){
         return CSVReader.readFromCSV("src/test/resources/Book_Flight.csv");
     }

@@ -78,7 +78,7 @@ public class FlightStatusTest extends TestBase {
 
     }
 
-    @DataProvider(name = "flights")
+    @DataProvider(name = "flights",parallel=true)
     public Object[][] getData(){
         return CSVReader.readFromCSV("src/test/resources/Flights.csv");
     }

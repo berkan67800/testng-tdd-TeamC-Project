@@ -77,7 +77,7 @@ public class LoginTests extends TestBase{
     }
 
 
-    @DataProvider(name = "loginData")
+    @DataProvider(name = "loginData",parallel=true)
     public Object[][] getData(){
         return CSVReader.readFromCSV("src/test/resources/Login_Data.csv");
     }
