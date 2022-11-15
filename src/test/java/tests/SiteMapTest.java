@@ -97,7 +97,7 @@ public class SiteMapTest extends TestBase{
         SeleniumUtils.jsClick(siteMapPage.getAccesButton);
         siteMapPage.forgotPasswordButton.click();
         siteMapPage.resetPasswordBar.sendKeys(ConfigReader.getProperty("email"));
-        SeleniumUtils.waitFor(10);
+        SeleniumUtils.waitFor(5);
         siteMapPage.resetButton.click();
         Assert.assertTrue(siteMapPage.succesfullMessage.isDisplayed());
 
