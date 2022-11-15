@@ -81,7 +81,7 @@ public class NotificationTest extends TestBase{
             notificationTestElementsPage.feedbackSubmitButton.click();
             notificationTestElementsPage.feedbackOkButton.click();
 
-           // Thread.sleep(700);
+           SeleniumUtils.waitFor(5);
 
             Assert.assertEquals(driver.getCurrentUrl(),"https://www.delta.com/us/en/travel-planning-center/travel-planning-overview");
 
