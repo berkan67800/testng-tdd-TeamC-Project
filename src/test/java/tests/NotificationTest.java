@@ -27,8 +27,7 @@ public class NotificationTest extends TestBase{
             Set<String> allWindows = driver.getWindowHandles();
                for (String currentWindow: allWindows){
                     driver.switchTo().window(currentWindow);
-
-          }     Thread.sleep(200);
+           }     Thread.sleep(200);
 
             notificationTestElementsPage.collapsableText.click();
 

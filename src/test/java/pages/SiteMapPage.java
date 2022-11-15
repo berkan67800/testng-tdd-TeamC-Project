@@ -10,7 +10,6 @@ public class SiteMapPage {
     public SiteMapPage(){
 
         PageFactory.initElements(Driver.getDriver(), this);
-
     }
 
     @FindBy(xpath = "//a[@href='/content/www/en_US/shop/gift-card/corporate-bulk-gift-cards.html']")
@@ -33,6 +32,21 @@ public class SiteMapPage {
 
     @FindBy(xpath = "//a[@id='cancel-registration-yes']")
     public WebElement yesButton;
+
+    @FindBy(xpath = "//input[@id='id_remote_login_name']")
+    public WebElement emailOrUserName;
+
+    @FindBy(xpath = "//input[@id='id_remote_password']")
+    public WebElement password;
+
+    @FindBy(xpath = "//button[normalize-space()='Login']")
+    public WebElement loginButton;
+
+    @FindBy(xpath = "//a[normalize-space()='Forgot your password?']")
+    public WebElement forgotPasswordButton;
+
+    @FindBy(xpath = "//li[normalize-space()='Invalid credentials']")
+    public WebElement invalidCredentialsMessage;
 
 
 
